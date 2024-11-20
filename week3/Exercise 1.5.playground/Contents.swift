@@ -8,11 +8,14 @@ if usr == username && pwd == password {
 if login {
     print("Log In Successful ! !")
 }
-if usr != username {
-    print("Invalid Username")
+else {
+    if usr != username {
+        print("Invalid Username ! !")
+    }
+    else if pwd != password {
+        print("Invalid Password ! !")
+    }
 }
-if pwd != password {
-    print("Invalid Password")
-}
+
 
 
