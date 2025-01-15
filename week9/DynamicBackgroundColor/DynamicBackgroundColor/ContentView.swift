@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isRed = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        ZStack {
+            if isRed == true {
+                Color(.red)
+            } else {
+                Color(.gray)
+            }
+            VStack {
+                Button(action:{
+                    isRed.toggle()
+                }) {
+                    Text("Change")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.blue)
+                        .cornerRadius(10)
+                }
+            }
+            .padding()
+        }.ignoresSafeArea(.all)
     }
 }
 
