@@ -1,18 +1,29 @@
 //
 //  Day Time Weather.swift
-//  searchOption
+//  Weather
 //
-//  Created by labuser on 22/01/2025.
+//  Created by labuser on 08/01/2025.
 //
 
 import SwiftUI
 
 struct Day_Time_Weather: View {
+    var day : String
+    var weather : String
+    var celcius : String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(day)
+                .font(.title2)
+            Image(systemName : weather)
+            Text(celcius)
+                .font(.title3)
+                .fontWeight(.bold)
+        }
+        
     }
 }
 
 #Preview {
-    Day_Time_Weather()
+    Day_Time_Weather(day : "Tue", weather : "cloud.sun.fill", celcius : "28°")
 }
