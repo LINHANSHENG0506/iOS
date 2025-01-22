@@ -40,7 +40,7 @@ struct ContentView: View {
             .searchable(text: $searchText)
             .sheet(isPresented: $show) {
                 Text("This app was created by Lin Han Sheng.")
-                    .presentationDetents([.height(200), .large])
+                    .presentationDetents([.height(200)])
             }
         }.tint(.white)
     }
