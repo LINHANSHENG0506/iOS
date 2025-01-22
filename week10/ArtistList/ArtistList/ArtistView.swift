@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct ArtistView: View {
-
-    @State var selectedArtist : Artist ?= nil
+    
+    var artist: Artist
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(artist.name)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            Image(artist.image)
+                .resizable()
+                .frame(width : 180, height : 180)
+            Text(artist.desc)
+            Button(action : {
+                if let url = URL(string : artist.website) {
+                    UIApplication.shared.open(url);
+                }
+            }) {
+                Text("Instagram")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(.blue)
+                    .cornerRadius(10)
+            }
+        }
     }
 }
 
 #Preview {
-    ArtistView()
+    ArtistView(artist: artists[0])
 }

@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedArtist : Artist? = nil
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(artists) { artist in
+            Button(action : {
+                selectedArtist = artist
+            }) {
+                Text(artist.name)
+                    .foregroundColor(.black)
+            }
         }
-        .padding()
+        .sheet(item : $selectedArtist) { artist in
+            ArtistView(artist: artist)
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.gray)
+                .presentationDetents([.medium])
+        }
     }
 }
 
